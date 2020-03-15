@@ -18,5 +18,5 @@ events_table = DB.from(:events)
 rsvps_table = DB.from(:rsvps)
 
 get "/" do
-    "hello"
+    view "events"
 end
