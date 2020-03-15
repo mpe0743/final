@@ -1,1 +1,50 @@
-<h1><%= @event[:title] %></h1>
+<div class="row">
+    <div class="col-sm-9"
+
+        <h2>
+            <i class="fas fa-calendar-day"></i>
+            <%= @event[:date] %>
+        </h2>
+        <h1><%= @event[:title] %></h1>
+        <p><%= @event[:description] %></p>
+        <p><a href="#" class="btn btn-warning">Sign up to join!</a></p>
+
+        <ul class="list-unstyled">
+            <li class="media">
+                <i class="fas fa-running fa-2x"></i>                
+                <div class="media-body">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1">Angela H.</h5>
+                "One of my favorite races to participate in... I've run it 5 times so far."
+                </div>
+            </li>
+            <li><br></br></li>
+            <li class="media">
+                <i class="fas fa-running fa-2x"></i>                
+                <div class="media-body">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1">Brandon S.</h5>
+                "I recommend getting to the race early. The gear storage is difficult to find and the line gets long about 45 min prior to start time."
+                </div>
+            </li>
+            <li><br></br></li>
+            <li class="media">
+                <i class="fas fa-running fa-2x"></i>
+                <div class="media-body">
+                <h5 class="mt-0 mb-1">Ted A.</h5>
+                "Great winter race! Good to get out of the cold. Not a lot of elevation change which is great if you've been stuck on treadmill training."
+                </div>
+            </li>
+            </ul>
+    </div>
+    <div class="col-sm-3"
+        
+        <h3>When?</h3>
+        <p><%= @event[:date] %></p>
+        <h3>Where?</h3>
+        <p><%= @event[:location] %></p>
+        <h3>How many runners have signed up?</h3>
+        <p><%= @event[:location] %></p>
+
+    </div>
+</div>

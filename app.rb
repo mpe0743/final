@@ -24,7 +24,7 @@ get "/" do
 end
 
 get "/events/:id" do
-    @event = events_table.where{id: params[:id]}.first
+    @event = events_table.where(id: params[:id]).first
     view "event"
 end
 
