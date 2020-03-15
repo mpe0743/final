@@ -28,3 +28,16 @@ get "/events/:id" do
     view "event"
 end
 
+get "/events/:id/rsvps/new" do
+    @event = events_table.where(id: params[:id]).first
+    view "new_rsvp"
+end 
+
+get "/events/:id/rsvps/create" do
+    rsvps_table.insert(event_id: params["id"],
+                        name: params["name"],
+                        email: params["email"],
+                        running_status: params["running_status"])
+    view "create_rsvp"
+
+end

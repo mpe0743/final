@@ -7,7 +7,7 @@
         </h2>
         <h1><%= @event[:title] %></h1>
         <p><%= @event[:description] %></p>
-        <p><a href="#" class="btn btn-warning">Sign up to join!</a></p>
+        <p><a href="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-warning">Sign up to join!</a></p>
 
         <ul class="list-unstyled">
             <li class="media">
@@ -47,4 +47,8 @@
         <p><%= @event[:location] %></p>
 
     </div>
+
+
+<img src=" <%= @event[:image] %>"
+         width=150" height="70">   
 </div>
