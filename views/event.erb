@@ -6,12 +6,37 @@
             <%= @event[:date] %>
         </h2>
         <h1><%= @event[:title] %></h1>
+        <p>Lat & Long: </p>
         <p><%= @event[:description] %></p>
-        <p><a href="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-warning">Sign up to join!</a></p>
+        <p class="mt-5">
+            <% if @current_user %>
+                <a href="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-danger">RSVP now!</a>
+            <% else %>
+                <a href="/logins/new" class="btn btn-danger">Please sign in to RSVP</a>
+            <% end %>
+        </p>
+        <p><br></br></p>
+        <h3>Runners Signed Up:</h3>
+         <% for rsvp in @rsvps %>
+            <div class="media">
+                <% if rsvp[:going] %>
+                    <i class="fas fa-running fa-1x"></i>
+                <% else %>
+                   
+                <% end %>
+                <div class="media-body">
+                    <h5 class="mt-0"><%= @users_table.where(id: rsvp[:user_id]).to_a[0][:name] %></h5>
+                    <%= rsvp[:comments] %>
+                </div>
+            </div>
+        <% end %>
+        
+        <p><br></br></p>
+        <h3>What Others Have Said:</h3>
+        <p><br></br></p>
 
         <ul class="list-unstyled">
             <li class="media">
-                <i class="fas fa-running fa-2x"></i>                
                 <div class="media-body">
                 <div class="media-body">
                 <h5 class="mt-0 mb-1">Angela H.</h5>
@@ -20,7 +45,6 @@
             </li>
             <li><br></br></li>
             <li class="media">
-                <i class="fas fa-running fa-2x"></i>                
                 <div class="media-body">
                 <div class="media-body">
                 <h5 class="mt-0 mb-1">Brandon S.</h5>
@@ -29,7 +53,6 @@
             </li>
             <li><br></br></li>
             <li class="media">
-                <i class="fas fa-running fa-2x"></i>
                 <div class="media-body">
                 <h5 class="mt-0 mb-1">Ted A.</h5>
                 "Great winter race! Good to get out of the cold. Not a lot of elevation change which is great if you've been stuck on treadmill training."
@@ -39,16 +62,20 @@
     </div>
     <div class="col-sm-3"
         
+        
+        
+        <p></p>
+        <img src=" <%= @event[:image] %>"
+         width=300">
+        <p><br></br></p> 
         <h3>When?</h3>
         <p><%= @event[:date] %></p>
+        
         <h3>Where?</h3>
         <p><%= @event[:location] %></p>
         <h3>How many runners have signed up?</h3>
-        <p><%= @event[:location] %></p>
+        <p><%= @going_count %></p>
 
     </div>
-
-
-<img src=" <%= @event[:image] %>"
-         width=150" height="70">   
+  
 </div>

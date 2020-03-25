@@ -1,5 +1,11 @@
 <h1>Half Marathon Race Club</h1>
+<br></br>
+<h4>This year's races:</h4>
 
 <% for event in @events %>
     <p><a href="/events/<%= event[:id] %>"> <%= event[:title] %></a></p>
 <% end %>
+
+
+<img src="https://bragg.armymwr.com/application/files/7715/2900/6567/brgg-all-american-marathon.jpg"
+         width=700">
